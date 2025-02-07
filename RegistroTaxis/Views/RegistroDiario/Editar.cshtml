@@ -1,0 +1,83 @@
+﻿@model RegistroDiarioVm
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h1>Insertar</h1>
+
+    <div class="row">
+        <form method="post" asp-action="Editar">
+            <div class="row">
+                <div class="danger">
+                    @if (TempData["mensaje"] != null)
+                    {
+                        <div class="alert alert-warning alert dismissable" role="alert">
+                            <p> @TempData["mensaje"]</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+            <input asp-for="RegistroId" type="hidden" class="form-control" />
+            <div class="form-group">
+                <label asp-for="TotalDia" class="control-label"></label>
+                <input asp-for="TotalDia" class="form-control" readonly/>
+                <span asp-validation-for="TotalDia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Combustible" class="control-label"></label>
+                <input asp-for="Combustible" class="form-control" />
+                <span asp-validation-for="Combustible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PagoBase" class="control-label"></label>
+                <input asp-for="PagoBase" class="form-control" />
+                <span asp-validation-for="PagoBase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PagoConductor" class="control-label"></label>
+                <input asp-for="PagoConductor" class="form-control" />
+                <span asp-validation-for="PagoConductor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PagoDueño" class="control-label"></label>
+                <input asp-for="PagoDueño" class="form-control" />
+                <span asp-validation-for="PagoDueño" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gastos" class="control-label"></label>
+                <input asp-for="Gastos" class="form-control" />
+                <span asp-validation-for="Gastos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observacion" class="control-label"></label>
+                <input asp-for="Observacion" class="form-control" />
+                <span asp-validation-for="Observacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxiId" nam class="control-label">Taxi</label>
+                @Html.DropDownList("TaxiId", Model.Taxi, "Seleccione taxi", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Editar" class="btn-success" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+

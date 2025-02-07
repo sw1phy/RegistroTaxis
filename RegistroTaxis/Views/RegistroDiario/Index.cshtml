@@ -1,0 +1,69 @@
+﻿@model List<RegistroDiarioVm>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-action="Insertar" method="get">
+    <div class="row">
+        <div class="danger">
+            @if (TempData["mensaje"] != null)
+            {
+                <div class="alert alert-warning alert dismissable" role="alert">
+                    <p> @TempData["mensaje"]</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Agregar" class="btn-success" />
+    </div>
+    @if (Model.Count >0)
+    {
+        <div class="ScrollB">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Total Día</th>
+                        <th>Combustible</th>
+                        <th>Pago Base</th>
+                        <th>PagoConductor</th>
+                        <th>Pago Dueño</th>
+                        <th>Gastos</th>
+                        <th>Observación</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.TotalDia</td>
+                            <td>@item.Combustible</td>
+                            <td>@item.PagoBase</td>
+                            <td>@item.PagoConductor</td>
+                            <td>@item.PagoDueño</td>
+                            <td>@item.Gastos</td>
+                            <td>@item.Observacion</td>
+                            <td>@item.Fecha</td>
+                            <td>
+                                @Html.ActionLink("Editar", "Editar", "RegistroDiario", new { @RegistroId = item.RegistroId }, new { @class = "btn btn-info"})
+                                @Html.ActionLink("Eliminar", "Eliminar", "RegistroDiario", new { @RegistroId = item.RegistroId }, new { @class = "btn btn-info" })
+                                
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else{
+        <p>No hay registros actualmente</p>
+    }
+</form>
+
+
