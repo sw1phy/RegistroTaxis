@@ -6,6 +6,9 @@ Tras verificar que todos los paquetes de NuGet estaban instalados en su versión
 
 ![{9BCC5F73-B2BA-41B9-933F-F49F10699930}](https://github.com/user-attachments/assets/62332e74-dc1d-4cfc-b274-8d1b8f943c34)
 
+![{452C715D-7B3C-4A7B-91C5-7CB818C75E94}](https://github.com/user-attachments/assets/5ba027c9-8889-444b-9131-f808e1b68ab4)
+
+
 
 Personalmente no tuve exito con ninguna de las sugerencias, así que simplemente borré mi versión actual del Visual Studio, lo reinstalé, volví a hacer las migraciones y todo el proyecto en sí, y se solucionó.
 
